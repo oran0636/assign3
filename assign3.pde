@@ -24,11 +24,6 @@ int fighterY = 210;
 int enemyX;
 int enemyY = floor(random(415));
 
-boolean upPressed=false;
-boolean leftPressed=false;
-boolean downPressed=false;
-boolean rightPressed=false;
-
 void setup () {
   size(640, 480) ;
   fighterImg = loadImage("img/fighter.png") ;
