@@ -1,7 +1,6 @@
 //You should implement your assign3 here.
 final int GAME_START = 0;
 final int GAME_PLAYING = 1;
-final int GAME_OVER = 2;
 
 int gameState;
 
