@@ -1,6 +1,7 @@
 //You should implement your assign3 here.
 final int GAME_START = 0;
 final int GAME_PLAYING = 1;
+final int GAME_OVER = 2;
 
 int gameState;
 
@@ -20,8 +21,11 @@ int treasureX = floor(random(600));
 int treasureY = floor(random(450));
 int fighterX = 580;
 int fighterY = 210;
-int enemyX;
-int enemyY = floor(random(415));
+
+boolean upPressed=false;
+boolean leftPressed=false;
+boolean downPressed=false;
+boolean rightPressed=false;
 
 void setup () {
   size(640, 480) ;
@@ -58,18 +62,27 @@ void draw() {
       if( bgB == 640) {
       bgB = bgB * -1 ;
       } 
+      //HP
       fill(#FF0000);
       rect(20,12,hp,20);
       image(hpImg,10,10);
+      //Treasure
       image(treasureImg,treasureX,treasureY);
+      //Fighter
       image(fighterImg,fighterX,fighterY);
-         
-         
-      for(int i=0; i<5; i++){
-        enemyX = i*-100;
-        image(enemyImg,enemyX,enemyY);
+      //Enemy
+      PImage[] enemys = new PImage[5];
+      boolean isGameOver = false;       
+        while(! isGameOver){       
+          for(int i =0 ; i < 5 ; i++){
+          int y = floor(random(415));          
+          image(enemys[i],enemys[i].x+100,random);
+          if(enemys[i].x > screenWidth+enemys[i].width){
+          image(enemys[i],0-enemys[i].width,y);
+          }
+        }
       }
-      
+              
     break;
   }
 }
